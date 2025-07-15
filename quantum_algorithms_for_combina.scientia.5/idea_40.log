@@ -1,0 +1,35 @@
+IDEA 40 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:23:27
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 20
+Refinement Count: 0
+
+**Title**: Quantum Generation of Random Graphs with Prescribed Properties Using Adaptive Amplitude Amplification
+
+**Key Idea**: Adaptive quantum amplitude amplification accelerates the generation of random graphs with prescribed degree sequences or constraints, outperforming classical MCMC in both speed and uniformity.
+
+**Paragraph**: Generating random graphs with specific properties is pivotal in combinatorial probability. Adaptive amplitude amplification, which tunes amplification steps based on observed sample statistics, further reduces mixing time and ensures uniformity even for complex constraints.
+
+**Approach**: Develop adaptive amplitude amplification circuits for random graph generation, apply to graphs with degree and connectivity constraints, and compare uniformity and speed with classical MCMC.
+
+**Key References**: [Brassard 2002], [McKay 1991], [Grover 2002].
+
+**Modifications**:  
+- Added adaptive amplification for efficiency and uniformity.
+- Addressed complex constraints.
+- Added [Grover 2002].
+
+---
+
+## NEW COMPLEMENTARY IDEAS
+
+---
+
+### New Idea 1
+

@@ -1,0 +1,31 @@
+IDEA 47 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:25:50
+PHASE: Evolution, ROUND: 3
+================================================================================
+
+Evolution Round 3
+Generation Type: refined
+Parent Idea: 5
+Refinement Count: 0
+
+**Title**: Parameterized and Adaptive Quantum Algorithms for Subset Sum with Instance-Driven Heuristics and Error Certification
+
+**Key Idea**: Quantum algorithms employing parameter tuning, adaptive amplitude amplification, instance-driven heuristics, and error certification can achieve superpolynomial speedup and reliable results for subset sum in practical instance classes.
+
+**Paragraph**: Subset sum is foundational in cryptography and optimization. While quantum speedups are known for moderate-density or bounded-sum regimes, further gains and reliability are achieved by parameterizing walk and amplification depth according to instance features, applying heuristics (e.g., pruning based on sum distributions), and incorporating error certification to ensure trustworthy outputs for real-world cryptographic and combinatorial applications.
+
+**Approach**: Build adaptive quantum algorithms that tune parameters based on input statistics, integrate heuristic pruning, and apply error certification (e.g., confidence intervals). Benchmark on random and structured instances, comparing with classical and non-adaptive quantum approaches.
+
+**Key References**: [Grover 1997], [Ding 2018], [Ambainis 2004], [Knill 2007] (added for error certification).
+
+**Modifications**:  
+- **Extended**: Added heuristic pruning and error certification.
+- **Strengthened**: Improved reliability for cryptographic use.
+- **New citation**: [Knill 2007].
+
+---
+
+### Idea 26 (Refined)
+

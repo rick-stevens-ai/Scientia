@@ -1,0 +1,37 @@
+IDEA 20 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-21 15:47:53
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 10
+Refinement Count: 0
+
+**Title**: Adaptive Multi-Scale Thermal Management for Maximized Usable EV Battery Capacity
+
+**Key Idea**: Deploying adaptive, multi-scale thermal management systems with real-time sensing and control will further reduce thermal degradation and optimize usable storage capacity in EV batteries.
+
+**Paragraph**: While advanced thermal management improves battery longevity, integrating multi-scale (cell, module, pack) solutions with AI-driven real-time sensing and control can more precisely maintain optimal conditions, minimize hotspots, and dynamically adapt to usage patterns [Pesaran 2002; Leng et al. 2021]. This
+
+**Approach**: maximizes retained capacity and performance in diverse operational scenarios.
+
+**Approach**: Develop battery packs with distributed thermal sensors, AI-based controllers, and multi-scale thermal interfaces (e.g., phase change, microfluidics); test under real-world and accelerated aging to quantify capacity retention gains.
+
+**Key References**: - Pesaran, A. A. (2002). Battery thermal management in EVs and HEVs: Issues and solutions. Proceedings of the Advanced Automotive Battery Conference.  
+- Leng, F., et al. (2021). Machine learning for battery thermal management: Opportunities and challenges. Energy & AI, 5, 100094. *(New)*
+
+**Modifications**:  
+- Added multi-scale, AI-driven adaptive thermal management.
+- New citation [Leng et al. 2021].
+
+---
+
+## NEW Complementary Ideas
+
+---
+
+### New Idea 1
+

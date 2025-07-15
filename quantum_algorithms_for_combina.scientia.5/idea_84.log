@@ -1,0 +1,33 @@
+IDEA 84 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:28:05
+PHASE: Evolution, ROUND: 4
+================================================================================
+
+Evolution Round 4
+Generation Type: refined
+Parent Idea: 20
+Refinement Count: 0
+
+**Title**: Quantum Generation of Random Graphs with Prescribed Properties via Adaptive Amplitude Amplification, Certified Uniformity, and Circuit Optimization
+
+**Key Idea**: Adaptive quantum amplitude amplification with error certification and circuit optimization enables fast, provably uniform generation of random graphs with prescribed constraints, outperforming classical MCMC in speed and uniformity.
+
+**Paragraph**: Generating random graphs with specific properties is essential in combinatorial probability and network science. Adaptive amplitude amplification accelerates sampling and ensures uniformity, error certification provides rigorous guarantees, and circuit optimization brings scalability and efficiency to near-term devices.
+
+**Approach**: Develop adaptive amplitude amplification circuits with error certification and circuit optimization for random graph generation under degree and connectivity constraints. Compare with classical MCMC.
+
+**Key References**: [Brassard 2002], [McKay 1991], [Grover 2002], [Knill 2007], [Khatri 2019].
+
+**Modifications**:
+- **Extended**: Added circuit optimization for scalability.
+
+---
+
+## New Complementary Ideas
+
+---
+
+### Idea 65 (New)
+

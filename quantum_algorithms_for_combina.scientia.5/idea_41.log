@@ -1,0 +1,24 @@
+IDEA 41 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:23:27
+PHASE: New Idea, ROUND: 2
+================================================================================
+
+New Idea Generation (Round 2)
+Generation Type: new
+
+**Title**: Quantum-Accelerated Enumeration of Combinatorial Polytope Vertices
+
+**Key Idea**: Quantum algorithms using amplitude amplification and polytope membership oracles can enumerate or estimate the number of vertices of high-dimensional combinatorial polytopes exponentially faster than classical pivoting or sampling methods.
+
+**Paragraph**: Enumerating vertices of combinatorial polytopes (e.g., Birkhoff, cut, or matching polytopes) is central to optimization and computational geometry but is classically intractable for high dimensions. Quantum amplitude amplification, when applied to polytope membership oracles, enables faster random walks and estimation of the number of vertices or faces, opening new avenues for large-scale combinatorial optimization and geometry.
+
+**Approach**: Encode polytope membership as a quantum oracle, apply amplitude amplification for vertex enumeration or estimation, and benchmark on standard combinatorial polytopes against classical simplex or random walk algorithms.
+
+**Key References**: [Brassard 2002], [Grover 2002], [Barvinok 2012] (Combinatorics and complexity of polytopes), [Childs 2003].
+
+---
+
+### New Idea 2
+

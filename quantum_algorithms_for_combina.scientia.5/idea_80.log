@@ -1,0 +1,33 @@
+IDEA 80 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:28:05
+PHASE: Evolution, ROUND: 4
+================================================================================
+
+Evolution Round 4
+Generation Type: refined
+Parent Idea: 16
+Refinement Count: 0
+
+**Title**: Quantum Adaptive Amplitude Amplification for Uniform Generation of Combinatorial Objects with Certified Uniformity and Circuit Optimization
+
+**Key Idea**: Quantum amplitude amplification with adaptive sampling, error certification, and circuit optimization enables efficient and provably uniform generation of combinatorial objects, outperforming classical approaches for complex or high-rejection settings.
+
+**Paragraph**: Random generation is foundational in combinatorics and randomized algorithms. Quantum amplitude amplification accelerates sampling, adaptive schemes reduce sample requirements, error certification ensures uniformity and reliability, and circuit optimization extends feasibility to near-term devices.
+
+**Approach**: es for complex or high-rejection settings.
+
+**Paragraph**: Random generation is foundational in combinatorics and randomized algorithms. Quantum amplitude amplification accelerates sampling, adaptive schemes reduce sample requirements, error certification ensures uniformity and reliability, and circuit optimization extends feasibility to near-term devices.
+
+**Approach**: Implement adaptive amplitude amplification with error certification and circuit optimization for generating permutations, combinations, and other objects. Validate uniformity and efficiency.
+
+**Key References**: [Brassard 2002], [Wilf 2005], [Grover 2002], [Knill 2007], [Khatri 2019].
+
+**Modifications**:
+- **Extended**: Added circuit optimization.
+
+---
+
+### Idea 59 (Refined)
+

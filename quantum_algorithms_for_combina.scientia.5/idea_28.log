@@ -1,0 +1,31 @@
+IDEA 28 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:23:27
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 8
+Refinement Count: 0
+
+**Title**: Quantum Backtracking with Heuristic Pruning for Hamiltonian Cycle Detection
+
+**Key Idea**: Quantum backtracking, augmented with heuristic pruning, enhances the search for Hamiltonian cycles in structured graphs.
+
+**Paragraph**: Hamiltonian cycle detection is central to combinatorial optimization. By combining quantum backtracking with classical heuristic pruning (e.g., degree or connectivity-based cuts), we reduce search space size, further improving quantum runtime beyond naïve backtracking and outperforming classical heuristics in structured or sparse graphs.
+
+**Approach**: Implement quantum backtracking with heuristic pruning, test on synthetic and real-world graphs, and compare with classical and pure quantum backtracking.
+
+**Key References**: [Montanaro 2015], [Held 1962], [Dorniak-Wall 2021] (Heuristic pruning in quantum search).
+
+**Modifications**:  
+- Added heuristic pruning to quantum backtracking.
+- Increased practical applicability.
+- Added [Dorniak-Wall 2021].
+
+---
+
+### Idea 9
+

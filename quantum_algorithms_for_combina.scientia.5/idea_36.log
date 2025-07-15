@@ -1,0 +1,31 @@
+IDEA 36 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:23:27
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 16
+Refinement Count: 0
+
+**Title**: Quantum Algorithms for Uniform Generation of Combinatorial Objects with Adaptive Sampling
+
+**Key Idea**: Quantum amplitude amplification with adaptive sampling schemes can generate random combinatorial objects (e.g., permutations, combinations) more efficiently and with guaranteed uniformity.
+
+**Paragraph**: Random generation is foundational in combinatorics and randomized algorithms. Quantum amplitude amplification, when paired with adaptive sampling (modifying rejection probabilities based on prior outcomes), further reduces required samples, especially for complex or high-rejection structures.
+
+**Approach**: Implement adaptive amplitude amplification for various combinatorial objects, validate uniformity and speed, and compare with classical rejection/Markov chain sampling.
+
+**Key References**: [Brassard 2002], [Wilf 2005], [Grover 2002] (Quantum search on structured databases).
+
+**Modifications**:  
+- Added adaptive sampling for further efficiency.
+- Guaranteed uniformity in sampling.
+- Added [Grover 2002].
+
+---
+
+### Idea 17
+

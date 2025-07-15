@@ -1,0 +1,12 @@
+IDEA 19 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 17:42:57
+PHASE: Initial Generation, ROUND: 1
+================================================================================
+
+Initial Generation
+Generation Type: initial
+
+**Approach**: Develop a quantum algorithm using a combination of quantum Fourier transform [Nielsen 2010] and polynomial interpolation [Bürgisser 2013] to efficiently compute permutation polynomials over finite fields.
+

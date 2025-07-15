@@ -1,0 +1,29 @@
+IDEA 81 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:28:05
+PHASE: Evolution, ROUND: 4
+================================================================================
+
+Evolution Round 4
+Generation Type: refined
+Parent Idea: 17
+Refinement Count: 0
+
+**Title**: Quantum Period-Finding for Pell’s Equation with Security Analysis, Error Certification, and Adaptive Compilation for Post-Quantum Cryptography
+
+**Key Idea**: Quantum period-finding algorithms, supported by error certification and adaptive compilation, efficiently solve Pell’s equation and assess post-quantum security of related cryptosystems with high reliability.
+
+**Paragraph**: Pell’s equation represents a classic number-theoretic challenge where quantum period-finding achieves exponential speedup. Incorporating error certification and adaptive circuit compilation enables trustworthy cryptanalysis of protocols based on Pell’s hardness, directly informing the design of post-quantum cryptography.
+
+**Approach**: Implement quantum period-finding for Pell’s equation with error certification and adaptive compilation, analyze cryptosystems based on Pell’s hardness, and compare with classical and non-certified quantum methods.
+
+**Key References**: [Hallgren 2002], [Shor 1994], [Biasse 2018], [Knill 2007], [Khatri 2019].
+
+**Modifications**:
+- **Extended**: Added adaptive compilation.
+
+---
+
+### Idea 60 (Refined)
+

@@ -1,0 +1,26 @@
+IDEA 27 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-28 06:27:18
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 7
+Refinement Count: 0
+
+**Title**: Quantum Secure Multi-Party Computation
+-
+
+**Key Idea**: Developing quantum algorithms and protocols for secure multi-party computation to enhance data privacy and security.
+-
+
+**Paragraph**: Secure multi-party computation is a fundamental problem in cryptography [Yao 1982]. Quantum algorithms and protocols could provide new insights and capabilities for secure multi-party computation.
+-
+
+**Approach**: Investigate the use of quantum algorithms like quantum homomorphic encryption [Gentry 2009] for secure multi-party computation.
+-
+
+**Key References**: [Yao 1982], [Gentry 2009]
+

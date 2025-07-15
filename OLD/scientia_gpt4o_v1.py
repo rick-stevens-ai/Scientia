@@ -1,0 +1,425 @@
+import openai
+from typing import List, Dict, Any
+
+##############################################################################
+# Configuration: Set your OpenAI API credentials and model information here
+##############################################################################
+
+OPENAI_API_KEY = "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+MODEL_ENDPOINT = "https://api.openai.com/v1/chat/completions"  # Default endpoint
+MODEL_ID       = "gpt-4o"  # Or whichever model you prefer
+
+openai.api_key = OPENAI_API_KEY
+# If using a custom endpoint, you can configure it like:
+# openai.api_base = "https://YOUR_CUSTOM_ENDPOINT/v1"
+
+
+##############################################################################
+# Agent Prompts: Each function returns the “system” prompt that defines the
+# initial context, role, and instructions for one agent in the pipeline.
+##############################################################################
+
+def get_supervisor_agent_prompt():
+    """
+    The Supervisor Agent’s primary responsibility is to read the scientist’s
+    overall research goal, break it down into tasks, and orchestrate the
+    workflow among the specialized agents.
+    """
+    return (
+        "You are the Supervisor Agent in a multi-agent AI co-scientist system. "
+        "You receive the high-level research goal and coordinate a series of "
+        "agents (Generation, Reflection, Ranking, Evolution, Proximity Check, "
+        "Meta-review) to iteratively produce, refine, and rank scientific ideas. "
+        "Manage the overall workflow and produce final instructions or summaries "
+        "to the user. Keep track of each round, pass the correct context to each "
+        "agent, and store or update the system's memory as needed."
+    )
+
+def get_generation_agent_prompt():
+    """
+    The Generation Agent explores the literature, brainstorms, and synthesizes
+    new ideas or hypotheses.
+    """
+    return (
+        "You are the Generation Agent in a multi-agent AI co-scientist system. "
+        "You produce new ideas and hypotheses in response to a defined "
+        "research goal. Leverage existing literature, domain knowledge, and "
+        "creative thinking to propose multiple distinct research directions, "
+        "frameworks, or experimental designs. Strive for novelty, practicality, "
+        "and scientific rigor."
+    )
+
+def get_reflection_agent_prompt():
+    """
+    The Reflection Agent reviews proposals for potential flaws, inconsistency,
+    and feasibility. It can suggest improvements or checks to strengthen them.
+    """
+    return (
+        "You are the Reflection Agent in a multi-agent AI co-scientist system. "
+        "You critically analyze research proposals or hypotheses, identifying "
+        "potential flaws or inconsistencies. Recommend improvements or missing "
+        "angles, and highlight strengths and weaknesses so that subsequent "
+        "agents can refine the ideas further."
+    )
+
+def get_ranking_agent_prompt():
+    """
+    The Ranking Agent compares and ranks competing hypotheses or proposals,
+    often via a debate or tournament approach.
+    """
+    return (
+        "You are the Ranking Agent in a multi-agent AI co-scientist system. "
+        "You receive multiple research ideas or proposals. Your job is to "
+        "compare them, simulate a debate about their merits, identify strengths "
+        "and weaknesses, and then rank them from most to least promising. You "
+        "provide rationale for the ranking and feedback that other agents can "
+        "use to improve future hypotheses."
+    )
+
+def get_evolution_agent_prompt():
+    """
+    The Evolution Agent modifies existing ideas by simplifying or extending them,
+    combining them with other concepts, etc.
+    """
+    return (
+        "You are the Evolution Agent in a multi-agent AI co-scientist system. "
+        "You take an existing set of research ideas, and refine or evolve them. "
+        "You may simplify complex designs, combine ideas into hybrid solutions, "
+        "or extend them into new directions. Highlight key changes so that the "
+        "ideas become stronger, more innovative, or more feasible."
+    )
+
+def get_proximity_check_agent_prompt():
+    """
+    The Proximity Check Agent ensures that new proposals stay within the required
+    constraints and remain relevant to the original research goal.
+    """
+    return (
+        "You are the Proximity Check Agent in a multi-agent AI co-scientist system. "
+        "Your role is to evaluate whether newly generated or revised ideas stay "
+        "aligned with the assigned research goal, meet ethical and feasibility "
+        "constraints, and do not drift too far from the desired objectives. If "
+        "misalignment is detected, provide warnings and corrective suggestions."
+    )
+
+def get_meta_review_agent_prompt():
+    """
+    The Meta-review Agent synthesizes the top-ranked ideas into a cohesive
+    overview and final recommendation.
+    """
+    return (
+        "You are the Meta-review Agent in a multi-agent AI co-scientist system. "
+        "You take the final set of refined, top-ranked research proposals and "
+        "compose a meta-analysis: summarize the core ideas, discuss strengths "
+        "and limitations, and suggest practical next steps. Your output should "
+        "be a concise but comprehensive overview that the scientist can review "
+        "to decide how to proceed."
+    )
+
+##############################################################################
+# Helper function to call an agent via the OpenAI ChatCompletion API
+##############################################################################
+
+def call_agent(
+    agent_system_prompt: str,
+    user_prompt: str,
+    additional_context: str = ""
+) -> str:
+    """
+    Given an agent-specific system prompt, a user-level prompt, and optional
+    additional context (e.g., lists of ideas, feedback from other agents), call
+    the OpenAI ChatCompletion API to get the agent's response.
+    """
+    messages = [
+        {"role": "system", "content": agent_system_prompt},
+    ]
+
+    # If there is extra context we want to feed as 'assistant' or 'system', we can insert it
+    if additional_context:
+        messages.append({"role": "assistant", "content": additional_context})
+
+    # Then add the user prompt as the last message
+    messages.append({"role": "user", "content": user_prompt})
+
+    response = openai.ChatCompletion.create(
+        model=MODEL_ID,
+        messages=messages
+    )
+
+    return response["choices"][0]["message"]["content"]
+
+##############################################################################
+# Main multi-round workflow function
+##############################################################################
+
+def run_co_scientist_workflow(
+    research_goal: str,
+    num_ideas: int = 10,
+    num_rounds: int = 3
+) -> None:
+    """
+    This function orchestrates a multi-round AI co-scientist workflow:
+      1) The Supervisor Agent sets up the initial tasks.
+      2) Generation (or Evolution in subsequent rounds) Agent produces ideas.
+      3) Reflection Agent reviews them.
+      4) Proximity Check Agent ensures alignment/feasibility.
+      5) Ranking Agent ranks them.
+      6) A summary of each round is provided.
+      7) After the final round, the Meta-review Agent generates a final overview.
+
+    :param research_goal: The user-specified research goal.
+    :param num_ideas: How many ideas to generate each round (default 10).
+    :param num_rounds: How many iterative rounds to run (default 3).
+    """
+    # Supervisor welcomes and sets the stage
+    supervisor_intro = call_agent(
+        get_supervisor_agent_prompt(),
+        user_prompt=(
+            f"The user has the research goal: '{research_goal}'. "
+            "We will conduct multiple rounds of idea generation and refinement."
+        )
+    )
+    print("=== SUPERVISOR INTRO ===")
+    print(supervisor_intro)
+    print("")
+
+    # Keep track of the ideas across rounds
+    ideas: List[str] = []
+
+    for round_idx in range(num_rounds):
+        print(f"\n========== ROUND {round_idx+1} / {num_rounds} ==========\n")
+
+        # 1) Generate or Evolve Ideas
+        if round_idx == 0:
+            # First round, we generate new ideas
+            gen_prompt = (
+                f"Please generate {num_ideas} distinct research ideas or hypotheses "
+                f"for the goal: '{research_goal}'."
+            )
+            generation_output = call_agent(
+                get_generation_agent_prompt(),
+                user_prompt=gen_prompt
+            )
+            # We will parse the returned text into separate ideas (basic approach)
+            ideas = parse_ideas_from_text(generation_output, expected_count=num_ideas)
+            print("=== GENERATION AGENT OUTPUT ===")
+            print(generation_output)
+            print("")
+        else:
+            # Subsequent rounds, we evolve the existing ideas
+            # We'll pass in the current list of ideas as context
+            ideas_text = "\n".join([f"{i+1}. {idea}" for i, idea in enumerate(ideas)])
+            evolve_prompt = (
+                f"We have the following {len(ideas)} ideas:\n\n"
+                f"{ideas_text}\n\n"
+                "Please refine or evolve each idea to be stronger, "
+                "more novel, or more feasible."
+            )
+            evolution_output = call_agent(
+                get_evolution_agent_prompt(),
+                user_prompt=evolve_prompt
+            )
+            ideas = parse_ideas_from_text(evolution_output, expected_count=len(ideas))
+            print("=== EVOLUTION AGENT OUTPUT ===")
+            print(evolution_output)
+            print("")
+
+        # 2) Reflect on the ideas
+        ideas_text = "\n".join([f"{i+1}. {idea}" for i, idea in enumerate(ideas)])
+        reflection_prompt = (
+            f"Please analyze these {len(ideas)} ideas for flaws, inconsistencies, or "
+            "areas needing improvement:\n\n" + ideas_text
+        )
+        reflection_output = call_agent(
+            get_reflection_agent_prompt(),
+            user_prompt=reflection_prompt
+        )
+        print("=== REFLECTION AGENT OUTPUT ===")
+        print(reflection_output)
+        print("")
+
+        # 3) Proximity Check (ensures alignment with goal/constraints)
+        proximity_prompt = (
+            f"Please ensure these ideas remain aligned with the research goal '{research_goal}' "
+            "and check for ethical, feasibility, or scope concerns. If any are out of scope, "
+            "suggest modifications or indicate if they should be dropped:\n\n" + ideas_text
+        )
+        proximity_output = call_agent(
+            get_proximity_check_agent_prompt(),
+            user_prompt=proximity_prompt
+        )
+        print("=== PROXIMITY CHECK AGENT OUTPUT ===")
+        print(proximity_output)
+        print("")
+
+        # 4) Ranking of ideas
+        ranking_prompt = (
+            f"We have these {len(ideas)} ideas:\n\n{ideas_text}\n\n"
+            "Please rank them from most promising to least promising, "
+            "and provide a rationale."
+        )
+        ranking_output = call_agent(
+            get_ranking_agent_prompt(),
+            user_prompt=ranking_prompt
+        )
+        print("=== RANKING AGENT OUTPUT ===")
+        print(ranking_output)
+        print("")
+
+        # Optionally, we can parse the ranking to reorder `ideas` for the next round
+        # This step will vary depending on how the ranking output is formatted.
+        ideas_ordered = parse_ideas_order_from_ranking(ranking_output, ideas)
+        ideas = ideas_ordered
+
+        # 5) The Supervisor can summarize the round
+        round_summary = call_agent(
+            get_supervisor_agent_prompt(),
+            user_prompt=(
+                f"Summarize the results of round {round_idx+1}, referencing the Reflection, "
+                f"Proximity Check, and Ranking. The top ideas are:\n\n"
+                + "\n".join([f"{i+1}. {idea}" for i, idea in enumerate(ideas)])
+            )
+        )
+        print("=== SUPERVISOR ROUND SUMMARY ===")
+        print(round_summary)
+
+    # After all rounds, we do a Meta-review
+    final_ideas_text = "\n".join([f"{i+1}. {idea}" for i, idea in enumerate(ideas)])
+    meta_prompt = (
+        f"Here are the final {len(ideas)} ideas from the iterative process:\n\n"
+        f"{final_ideas_text}\n\n"
+        "Please provide a meta-review, summarizing the best ideas, their strengths "
+        "and weaknesses, and suggest next steps for the scientist."
+    )
+    meta_review_output = call_agent(
+        get_meta_review_agent_prompt(),
+        user_prompt=meta_prompt
+    )
+    print("\n=== META-REVIEW AGENT OUTPUT ===")
+    print(meta_review_output)
+
+
+##############################################################################
+# Simple Parsers for Idea Lists and Rankings
+##############################################################################
+
+def parse_ideas_from_text(text: str, expected_count: int) -> List[str]:
+    """
+    Very naive parser to try to split the text into 'expected_count' ideas.
+    In a real system, you'd want a more robust approach.
+    For example, if the Generation/Evolution Agent enumerates items with bullet
+    points or numbered lists, we can attempt to split by lines or enumerators.
+    """
+    # Split by lines
+    lines = text.split("\n")
+    # Filter out empty lines
+    lines = [ln.strip() for ln in lines if ln.strip()]
+
+    # A simple approach: look for lines starting with '1.', '2.', etc.
+    # We'll accumulate them in a list.
+    ideas = []
+    current_idea = []
+    for line in lines:
+        if is_new_idea_start(line):
+            # If we have a current_idea in progress, push it
+            if current_idea:
+                ideas.append(" ".join(current_idea).strip())
+                current_idea = []
+            current_idea.append(line)
+        else:
+            current_idea.append(line)
+
+    # Add the last idea if present
+    if current_idea:
+        ideas.append(" ".join(current_idea).strip())
+
+    # If we ended up with fewer or more ideas than expected,
+    # we can fallback or just let it go. For now, let's just clamp to expected_count.
+    if len(ideas) < expected_count:
+        # We can artificially pad with duplicates or placeholders
+        # For simplicity, let's just keep them as is.
+        pass
+    elif len(ideas) > expected_count:
+        # Just keep the first `expected_count`
+        ideas = ideas[:expected_count]
+
+    # Remove the numbering from the start, if needed
+    cleaned_ideas = []
+    for idea in ideas:
+        # Remove leading "<digit>." etc.
+        cleaned = remove_leading_number(idea)
+        cleaned_ideas.append(cleaned.strip())
+
+    return cleaned_ideas
+
+
+def parse_ideas_order_from_ranking(ranking_output: str, current_ideas: List[str]) -> List[str]:
+    """
+    A naive approach to reorder `current_ideas` based on the Ranking Agent output.
+    Attempt to detect numeric order. In practice, you'd want a more robust parser.
+    """
+    # We'll try to look for lines that start with a digit, match them to the original ideas
+    # If we can't parse a line, we'll just keep them in the old order.
+    new_order = []
+    lines = ranking_output.split("\n")
+
+    # Create a map from idea index to idea text
+    # We'll do a simple approach: if the ranking text references "1. <some snippet>",
+    # we try to see which old idea it might match or if it references the old index.
+    # This can get tricky, but let's do a simple approach for demonstration.
+    idea_map = {i+1: current_ideas[i] for i in range(len(current_ideas))}
+
+    for line in lines:
+        line_stripped = line.strip()
+        # e.g. "1. Idea about X"
+        if line_stripped[:2].isdigit():
+            # Try to parse the first digit
+            idx_str = line_stripped.split(".")[0].strip()
+            try:
+                idx = int(idx_str)
+                if idx in idea_map:
+                    new_order.append(idea_map[idx])
+            except ValueError:
+                pass
+
+    # We only reorder items we found references for, if some are missing, just append them
+    for i in range(len(current_ideas)):
+        if idea_map[i+1] not in new_order:
+            new_order.append(idea_map[i+1])
+
+    return new_order
+
+
+def is_new_idea_start(line: str) -> bool:
+    # Checks if a line starts with a typical enumerator like "1." "2) " "- " etc.
+    # This is simplistic and might need refinement.
+    line_stripped = line.strip()
+    if len(line_stripped) < 2:
+        return False
+    # Common enumerator checks
+    if line_stripped[0].isdigit() and line_stripped[1] in [".", ")"]:
+        return True
+    if line_stripped.startswith("- "):
+        return True
+    return False
+
+
+def remove_leading_number(text: str) -> str:
+    # Removes leading digits, periods, or parentheses from a string like "1. " or "2) "
+    # e.g. "1. This is an idea" -> "This is an idea"
+    import re
+    return re.sub(r'^\s*\d+[\.\)]\s*', '', text).strip()
+
+
+##############################################################################
+# Example "main" usage
+##############################################################################
+
+if __name__ == "__main__":
+    # Example usage
+    user_research_goal = "Please explain what happens when a human has a mutation in the TP53 gene."
+    run_co_scientist_workflow(
+        research_goal=user_research_goal,
+        num_ideas=10,   # Default number of ideas per round
+        num_rounds=3    # Default number of iterative rounds
+    )

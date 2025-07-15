@@ -1,0 +1,34 @@
+IDEA 30 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-21 15:53:45
+PHASE: Evolution, ROUND: 3
+================================================================================
+
+Evolution Round 3
+Generation Type: refined
+Parent Idea: 7
+Refinement Count: 0
+
+**Title**: Interpretable Physics-Informed and Active-Learning ML for Accelerated Battery Material Discovery
+
+**Key Idea**: Combining interpretable, physics-informed machine learning with active learning and uncertainty quantification will expedite battery material discovery while guiding experimental validation.
+
+**Paragraph**: Physics-informed ML models, when combined with uncertainty quantification and active learning, can not only improve the reliability and interpretability of predictions but also prioritize the most informative experiments. This closed-loop
+
+**Approach**: accelerates discovery and reduces resource consumption by focusing experimental efforts on the most promising, yet uncertain, candidates [Xie & Grossman 2018; Jha et al. 2019; Lookman et al. 2019]. Such synergy is vital for rapid progress in high-capacity battery chemistries for EVs.
+
+**Approach**: Develop interpretable ML models integrating physics-based features; use active learning to iteratively select experiments; validate predictions in high-throughput synthesis and characterization workflows.
+
+**Key References**: - Xie, T., & Grossman, J. C. (2018). Crystal graph convolutional neural networks for accurate and interpretable prediction of material properties. Physical Review Letters, 120(14), 145301.  
+- Jha, D., et al. (2019). Enhancing materials property prediction by leveraging computational and experimental data using deep transfer learning. Nature Communications, 10, 5316.  
+- Lookman, T., et al. (2019). Active learning in materials science with emphasis on adaptive sampling using uncertainties for targeted design. npj Computational Materials, 5, 21. *(New)*
+
+**Modifications**:  
+- Added active learning and uncertainty quantification.
+- New citation [Lookman et al. 2019].
+
+---
+
+### Idea 18 (Further Refined)
+

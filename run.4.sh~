@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PROMPT="Please develop a set of ideas that relate DNA replication error rates, DNA repair rates, and tumor burden that results in tumorigenesis, in particular we want a mathematical model that relates these." 
+
+#python scientia_l33_v3.py $PROMPT > DNA.l33.txt &
+#python scientia_ds3_v3.py $PROMPT > DNA.ds3.txt &
+python scientia_gpt45_v3.py $PROMPT > DNA.gpt45.txt &
+#python scientia_gpt4o_v3.py $PROMPT > DNA.gpt4o.txt &

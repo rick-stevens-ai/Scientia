@@ -1,0 +1,31 @@
+IDEA 57 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 19:25:50
+PHASE: Evolution, ROUND: 3
+================================================================================
+
+Evolution Round 3
+Generation Type: refined
+Parent Idea: 15
+Refinement Count: 0
+
+**Title**: Quantum Amplitude Estimation with Certified Error Bounds and Adaptive Sampling for Partition Function Estimation
+
+**Key Idea**: Quantum amplitude estimation, enhanced with certified error bounds and adaptive sampling, enables fast and reliable estimation of partition functions in statistical mechanics and combinatorial models.
+
+**Paragraph**: Partition functions are central to physics and combinatorics but are classically hard to estimate. Quantum amplitude estimation provides speedup, and adaptive sampling, along with error certification, ensures reliable results for models like Ising and Potts, supporting broader adoption in computational physics.
+
+**Approach**: Develop quantum circuits for amplitude estimation with error certification and adaptive sampling, apply to Ising and Potts models, and compare certified accuracy, robustness, and speed with classical Monte Carlo.
+
+**Key References**: [Brassard 2002], [Jerrum 1993], [Montanaro 2015], [Knill 2007], [Grover 2002].
+
+**Modifications**:  
+- **Extended**: Added adaptive sampling for efficiency.
+- **Strengthened**: Emphasized practical reliability and error certification.
+- **New citation**: [Grover 2002].
+
+---
+
+### Idea 36 (Refined)
+

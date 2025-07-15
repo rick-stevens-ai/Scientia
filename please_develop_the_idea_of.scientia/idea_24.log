@@ -1,0 +1,33 @@
+IDEA 24 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-25 13:35:29
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 4
+Refinement Count: 0
+
+**Title**: AI-Enhanced Handheld IR Scanner with Injury-Specific Guidance for Musculoskeletal Assessment
+
+**Key Idea**: A portable IR scanner with embedded AI and injury-specific guidance can detect and classify musculoskeletal injuries, providing step-by-step prompts for optimal image capture and interpretation.
+
+**Paragraph**: Musculoskeletal injuries often display subtle or complex thermal patterns. Adding AI-driven guidance for image acquisition (e.g., prompts for positioning, timing) and detailed classification of injury types enhances the accuracy and usability of handheld IR scanners in pre-hospital, sports, or outpatient settings. This
+
+**Approach**: reduces operator dependence and supports rapid triage and referral decisions.
+
+**Approach**: Train deep learning models on large, annotated IR image datasets; integrate real-time guidance and feedback into handheld hardware; validate in clinical trials for various injury types and user skill levels.
+
+**Key References**: [Ring 2012]; [Vardasca 2019].
+
+**Modifications**:  
+- Added AI-based user guidance for image capture.  
+- Strengthens diagnostic accuracy and ease of use.  
+- No new citations needed (already covered).
+
+---
+
+### Idea 5 (Refined)
+

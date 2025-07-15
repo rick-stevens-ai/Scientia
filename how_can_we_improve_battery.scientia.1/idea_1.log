@@ -1,0 +1,21 @@
+IDEA 1 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-21 15:42:50
+PHASE: Initial Generation, ROUND: 1
+================================================================================
+
+Initial Generation
+Generation Type: initial
+
+**Title**: High-Nickel, Low-Cobalt Cathodes for Enhanced Energy Density
+
+**Key Idea**: Replacing conventional cathode materials with high-nickel, low-cobalt layered oxides significantly increases battery storage capacity in EVs.
+
+**Paragraph**: Conventional lithium-ion batteries often use NMC cathodes with moderate nickel content, but recent research suggests that increasing nickel while reducing cobalt can substantially enhance energy density due to nickel’s higher specific capacity. This also decreases reliance on expensive and ethically problematic cobalt. However, challenges such as structural instability and safety concerns must be addressed. Advancing cathode chemistry along these lines could directly increase the amount of energy stored per unit mass, thus improving EV range without increasing battery size or weight.
+
+**Approach**: Synthesize and characterize high-nickel, low-cobalt NMC or NCA cathodes; test for capacity, cyclic stability, and safety under automotive conditions; compare performance to conventional cathodes in full-cell configurations.
+
+**Key References**: - [Xu 2021] Xu, B. et al. "Recent advances in cathode materials for lithium ion batteries." Science China Chemistry 64, 2021.  
+- [Manthiram 2020] Manthiram, A. "A reflection on lithium-ion battery cathode chemistry." Nature Communications 11, 2020.
+

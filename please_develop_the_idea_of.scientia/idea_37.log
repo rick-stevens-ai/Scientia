@@ -1,0 +1,31 @@
+IDEA 37 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-25 13:35:29
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 17
+Refinement Count: 0
+
+**Title**: Self-Calibrating IR Scanner with Environmental Sensing and Adaptive User Guidance for Reliable Home Monitoring
+
+**Key Idea**: Automated calibration routines with environmental sensing and adaptive user prompts ensure consistent, reliable temperature readings from portable IR scanners in variable home settings.
+
+**Paragraph**: Home IR thermography is prone to error from ambient temperature shifts and user technique. Embedding environmental sensors (e.g., ambient temperature, humidity), self-calibration, and adaptive prompts (e.g., “move closer”) improves data reliability and user confidence, especially for self-monitoring.
+
+**Approach**: Develop calibration algorithms with integrated environmental sensors; simulate diverse home conditions; implement adaptive user feedback; evaluate impact on diagnostic accuracy among lay users.
+
+**Key References**: [Ng 2009]; [Vardasca 2019].
+
+**Modifications**:  
+- Added environmental sensing and adaptive user guidance.  
+- Strengthens consistency and user-friendliness.  
+- No new citations needed.
+
+---
+
+### Idea 18 (Refined)
+

@@ -1,0 +1,22 @@
+IDEA 27 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-26 17:49:32
+PHASE: Evolution, ROUND: 2
+================================================================================
+
+Evolution Round 2
+Generation Type: refined
+Parent Idea: 7
+Refinement Count: 0
+
+**Title**: Post-Quantum Cryptography with Lattice-Based Cryptography
+
+**Key Idea**: Lattice-based cryptography can be used to develop post-quantum cryptographic protocols.
+
+**Paragraph**: Current cryptographic protocols, such as RSA and elliptic curve cryptography, are vulnerable to quantum attacks. Lattice-based cryptography, which relies on the hardness of problems in lattice theory, can be used to develop post-quantum cryptographic protocols [Micciancio 2001]. This idea explores a novel angle by applying lattice-based cryptography to develop post-quantum cryptographic protocols.
+
+**Approach**: Develop a lattice-based cryptographic protocol that leverages the hardness of problems in lattice theory to provide post-quantum security.
+
+**Key References**: [Micciancio 2001], [Goldreich et al. 1999]
+

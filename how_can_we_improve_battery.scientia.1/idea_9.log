@@ -1,0 +1,21 @@
+IDEA 9 EVOLUTION LOG
+
+================================================================================
+TIMESTAMP: 2025-04-21 15:42:50
+PHASE: Initial Generation, ROUND: 1
+================================================================================
+
+Initial Generation
+Generation Type: initial
+
+**Title**: Hybrid Supercapacitor-Battery Architectures for Enhanced Usable Capacity
+
+**Key Idea**: Integrating supercapacitor elements with battery cells increases usable capacity by reducing stress and allowing deeper cycling.
+
+**Paragraph**: Supercapacitors offer high power density and long cycle life, but lower energy density than batteries. Hybrid architectures that combine supercapacitor and battery electrodes can buffer high-power demands, reduce peak current loads on battery materials, and enable batteries to cycle deeper without rapid degradation, effectively increasing the usable storage capacity in EVs.
+
+**Approach**: Design hybrid cells with asymmetric electrodes; test for energy/power density, cycle life, and depth-of-discharge tolerance; evaluate performance in drive-cycle simulations.
+
+**Key References**: - [Simon 2020] Simon, P. et al. "Hybrid capacitors: the best of both worlds." Nature Materials 19, 2020.  
+- [Wang 2012] Wang, G. et al. "Hybrid nanostructured materials for high-performance supercapacitors." Chemical Society Reviews 41, 2012.
+
